@@ -193,7 +193,7 @@
      * @param currentTask the string coming from the API
      */
     const revertHTMLChangeOnEdit = (currentTask) => {
-        let task = JSON.parse(currentTask);
+        let task = currentTask instanceof Task ? currentTask : JSON.parse(currentTask);
 
         let currentDOMTask = document.getElementById(`task-${task.id}`);
         currentDOMTask.querySelector('input[type=text]').remove();
